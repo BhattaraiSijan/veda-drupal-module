@@ -13,14 +13,15 @@ To get this up and running in Drupal:
 
 
     ```
-    npm install
-    npm run build
+    yarn install
+    yarn run build
 
     ```
 
 5.  **Clear Cache:** Clear Drupal's cache via the UI (`/admin/config/development/performance`) or Drush (`drush cr`).
 6.  **Visit Page:** Navigate to `/veda-ui` on your Drupal site to view the rendered Veda Exploration and Analysis Interface.
-**Note: The components styling will not match perfectly with Veda, using USWDS base Drupal theme makes it better.**
+
+**Note:: The components styling will not match perfectly with Veda, using USWDS base Drupal theme makes it better.**
 
 About This Module: How it Works Fundamentally
 ---------------------------------------------
@@ -31,6 +32,8 @@ This module integrates a React application with Drupal using a common pattern:
 2.  **Asset Loading:** The controller also tells Drupal to load the compiled JavaScript and CSS assets associated with this module (defined in `veda_ui.libraries.yml`). These assets contain the bundled React application code.
 3.  **React Mounting:** The loaded JavaScript code (from the React app's entry point, `js/index.jsx`) finds the `<div id="root"></div>` on the page and uses React's rendering mechanism (`ReactDOM.createRoot().render()`) to mount the `<ExplorationAndAnalysis/>` component inside that specific div.
 4.  **Configuration:** Settings entered in the Drupal admin form are passed from the controller to the JavaScript via `drupalSettings`, making them available to the React component upon loading.
+
+**Note:: The data used for this interface are being pulled from veda_ui/js/datasets.ts file**
 
 Building Blocks Explained
 -------------------------
@@ -56,3 +59,7 @@ A configuration file for Webpack, a popular JavaScript module bundler. It is not
     1.  Includes the essential HTML markup `<div id="root"></div>`, which acts as the placeholder for the React application.
     2.  Attaches the `veda_ui/veda_ui` library (defined in `veda_ui.libraries.yml`), causing the browser to load the compiled JS and CSS.
     3.  Loads configuration settings (Mapbox token, API endpoints) from Drupal's configuration system (saved via the settings form) and passes them to the frontend JavaScript environment via `drupalSettings`.
+
+### Screenshots of rendered interface
+![The Exploration and Analysis Interface](image-1.png)
+![The Dataset Selector Modal](image.png)
