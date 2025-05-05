@@ -62,4 +62,6 @@ A configuration file for Webpack, a popular JavaScript module bundler. It is not
 
 ### Screenshots of rendered interface
 ![The Exploration and Analysis Interface](image-1.png)
+*The Exploration and Analysis Interface*
 ![The Dataset Selector Modal](image.png)
+*The Dataset Selector Modal*
