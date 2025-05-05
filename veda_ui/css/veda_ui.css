@@ -1,0 +1,7 @@
+#veda-ui-root {
+  min-height: 600px; /* Adjust this value as needed */
+}
+
+#veda-ui-root [class^="exploration__Container"] {
+  min-height: 600px; /* Adjust this value as needed */
+}

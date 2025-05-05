@@ -1,0 +1,13 @@
+veda_ui.settings:
+  type: config_object
+  label: 'VEDA UI Settings'
+  mapping:
+    mapbox_token:
+      type: string
+      label: 'Mapbox Token'
+    api_stac_endpoint:
+      type: string
+      label: 'API STAC Endpoint'
+    api_raster_endpoint:
+      type: string
+      label: 'API Raster Endpoint'

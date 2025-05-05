@@ -1,0 +1,11 @@
+veda_ui_library:
+  version: 1.x
+  css:
+    theme:
+      css/veda_ui.css: {}
+      css/veda-ui-scope.css: {}
+  js:
+    dist/veda_ui.bundle.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings

@@ -1,0 +1,6 @@
+veda_ui.settings_form:
+  title: 'VEDA UI Settings'
+  description: 'Configure settings (Mapbox token and API endpoints) for the VEDA UI module.'
+  parent: system.admin_config_system
+  route_name: veda_ui.settings_form
+  weight: 100

@@ -1,0 +1,15 @@
+veda_ui.settings_form:
+  path: '/admin/config/veda-ui/settings'
+  defaults:
+    _form: '\Drupal\veda_ui\Form\VedaUISettingsForm'
+    _title: 'VEDA UI Settings'
+  requirements:
+    _permission: 'administer site configuration'
+
+veda_ui.display:
+  path: '/veda-ui'
+  defaults:
+    _controller: '\Drupal\veda_ui\Controller\VedaUIController::display'
+    _title: 'VEDA UI'
+  requirements:
+    _permission: 'access content'
