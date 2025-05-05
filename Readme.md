@@ -21,7 +21,7 @@ To get this up and running in Drupal:
 5.  **Clear Cache:** Clear Drupal's cache via the UI (`/admin/config/development/performance`) or Drush (`drush cr`).
 6.  **Visit Page:** Navigate to `/veda-ui` on your Drupal site to view the rendered Veda Exploration and Analysis Interface.
 
-**Note:: The components styling will not match perfectly with Veda, using USWDS base Drupal theme makes it better.**
+**Note:: The components styling will not match perfectly with Veda. Using USWDS base theme for Drupal and disabling JS and CSS aggregation in Drupal's configuration page will make it presentable. The screenshots below are taken after these steps were taken.**
 
 About This Module: How it Works Fundamentally
 ---------------------------------------------
