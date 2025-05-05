@@ -36,23 +36,22 @@ Building Blocks Explained
 
 ### `veda_ui.info.yml`
 
--   **What it is:** A required Drupal file that defines metadata about the module.
--   **What it does:** It tells Drupal that this directory contains a module, gives it a human-readable name ("Veda UI"), specifies its description, declares compatibility with Drupal core versions (`^9 || ^10`), and lists any module dependencies (like the `config` module for handling settings). Drupal uses this file to list the module on the `/admin/modules` page and manage its installation.
+-    A required Drupal file that defines metadata about the module.
+-    It tells Drupal that this directory contains a module, gives it a human-readable name ("Veda UI"), specifies its description, declares compatibility with Drupal core versions (`^9 || ^10`), and lists any module dependencies (like the `config` module for handling settings). Drupal uses this file to list the module on the `/admin/modules` page and manage its installation.
 
 ### `veda_ui.libraries.yml`
 
--   **What it is:** A Drupal file used to define "libraries" of CSS and JavaScript assets.
--   **What it does:** It registers the compiled output of the React application (the `index.js` and `index.css` files located in `js/dist/`) as a library named `veda_ui`. It specifies the paths to these files and lists core Drupal library dependencies (`core/drupal`, `core/jquery`). The controller then uses the library name (`veda_ui/veda_ui`) to tell Drupal to load these specific JS and CSS files when rendering the `/veda-ui` page.
+-  A Drupal file used to define "libraries" of CSS and JavaScript assets.
+-  It registers the compiled output of the React application as a library named `veda_ui`. It specifies the paths to these files. The controller then uses the library name (`veda_ui/veda_ui`) to tell Drupal to load these bundled JS and CSS files when rendering the `/veda-ui` page.
 
 ### `webpack.config.js`
 
--   **What it is:** A configuration file for Webpack, a popular JavaScript module bundler. It is not directly used by Drupal but is essential for developing the React part of the module.
--   **What it does:** It tells Webpack how to build the React application. It specifies the entry point (`./js/index.jsx`), how to process different file types (like JSX using Babel, and SCSS using `sass-loader` and `css-loader`), and where to output the final bundled files (`js/dist/index.js` and `js/dist/index.css` via `MiniCssExtractPlugin`). Running `npm run build` executes Webpack according to this configuration.
+A configuration file for Webpack, a popular JavaScript module bundler. It is not directly used by Drupal but is essential for developing the React part of the module.
 
 ### `src/Controller/VedaUiController.php`
 
--   **What it is:** A PHP class defining a Drupal Controller. Controllers handle requests for specific routes.
--   **What it does:** This controller is linked to the `/veda-ui` path (defined in `veda_ui.routing.yml`). When a user visits `/veda-ui`, the `vedaUi()` method within this controller is executed. Its main job is to return a Drupal render array that:
+-   A PHP class defining a Drupal Controller. Controllers handle requests for specific routes.
+-   This controller is linked to the `/veda-ui` path (defined in `veda_ui.routing.yml`). When a user visits `/veda-ui`, the `vedaUi()` method within this controller is executed. Its main job is to return a Drupal render array that:
     1.  Includes the essential HTML markup `<div id="root"></div>`, which acts as the placeholder for the React application.
     2.  Attaches the `veda_ui/veda_ui` library (defined in `veda_ui.libraries.yml`), causing the browser to load the compiled JS and CSS.
     3.  Loads configuration settings (Mapbox token, API endpoints) from Drupal's configuration system (saved via the settings form) and passes them to the frontend JavaScript environment via `drupalSettings`.
